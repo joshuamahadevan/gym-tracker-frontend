@@ -8,12 +8,36 @@
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/pose/pose.js" crossorigin="anonymous"></script>
   <script src="./app.js" defer></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </head>
 
 <body>
   <h1> OPEN CONSOLE TO SEE LEFT ELBOW ANGLE :) </h1>
-  <div class="container">
-    <video class="input_video"></video>
+
+  <form class="d-flex flex-column">
+    <label for="exercise_type" >Exercise Type:</label>
+    <select name="exercise_type" id="exercise_type">
+        <option value="bicep">Bicep</option>
+        <option value="squat">Squat</option>
+        <option value="Pushup">Pushup</option>
+        <option value="shoulder Press">Shoulder Press</option>
+    </select>
+    <label for="target_count" >Target Count:</label>
+    <input type="number" name="target_count" id="target_count" >
+    <input type="button" value="Start Exercise" id="start_button">
+  </form>
+  <div>
+    <div class="container mw-100 d-flex flex-row position-relative">
+      <video class="input_video" style="width: 75%; background: black;"></video>
+
+      <div class="container d-flex flex-column  ">
+        <p id="rep_count"> rep count : 0 </p>
+        <p id="stage"> stage : 0 </p>
+        <p id="visibility"> visible : false </p>
+      </div>
+    </div>
+  
     <canvas class="output_canvas" width="1280px" height="720px"></canvas>
     <div class="landmark-grid-container"></div>
   </div>
